@@ -12,6 +12,8 @@
 
 <body
   class="from-10% via-30% to-90% mx-auto mt-10 max-w-2xl bg-indigo-100 text-slate-700">
+@auth
+      
   <nav class="mb-8 flex justify-between items-between space-x-6 text-lg font-medium">
 
   <a href="{{ route('jobs.index') }}" class="hover:underline">Home</a>
@@ -30,6 +32,9 @@
     </div>
   </div>
 </nav>
+@endauth
+
+
 
 @if (session('success'))
     <div role="alert" class="my-8 rounded-md border-l-4 border-green-300 bg-green-100 p-4 text-green-700 opacity-75">

@@ -23,7 +23,7 @@ class EmployerController extends Controller
             ])
         );
 
-        return redirect()->route('job.index')
+        return redirect()->route('jobs.index')
             ->with('success', 'Your employer account was created!');
     }
 }

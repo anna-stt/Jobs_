@@ -31,6 +31,9 @@
           <a href="#" class="text-indigo-600 hover:underline">
             Forget password?
           </a>
+          <a href="{{ route('user.create') }}" class="ml-4 text-indigo-600 hover:underline">
+            Create account
+          </a>
         </div>
       </div>
 
