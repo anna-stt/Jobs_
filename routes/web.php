@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
         ->only(['create', 'store']);
 
     Route::resource('my-user', MyUserController::class)
-        ->only(['profile', 'update']);
+        ->only(['index', 'update', 'edit']);
 
     Route::middleware('employer')
         ->resource('my-jobs', MyJobController::class);

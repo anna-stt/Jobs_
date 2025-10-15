@@ -1,5 +1,5 @@
 <ul>
-    <a href="{{ route('my-user.profile') }}">Perfil</a>
+    <a href="{{ route('my-user.index') }}">Perfil</a>
 </ul>
 
 <ul>
