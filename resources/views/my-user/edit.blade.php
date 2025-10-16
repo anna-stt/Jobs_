@@ -1,23 +1,30 @@
 <x-layout>
   <x-card class="mb-4">
-    <form action="{{ route('my-user.update', $my_user) }}" method="POST">
+    <form action="{{ route('my-user.update', $my_user) }}"
+          method="POST"
+          enctype="multipart/form-data">
       @csrf
       @method('PUT')
-        <div class="flex justify-between items-between space-x-6">
-            <div class="flex-1">
-            <x-label for="name" :required="true">Name</x-label>
-            <div class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 placeholder:text-slate-400 focus:ring-2">{{ $my_user->name }}</div>
-            </div>
-            <div>
-              <x-label for="profile_picture">Profile Picture</x-label>
-              <x-button class="w-full">Upload Profile Picture</x-button>
-            </div>
-        </div>
-      <div class="mb-4 grid grid-cols-2 gap-4">
 
+      <div class="flex justify-between items-between space-x-6">
+        <div class="flex-1">
+          <x-label for="name" :required="true">Name</x-label>
+          <div class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 placeholder:text-slate-400 focus:ring-2">
+            {{ $my_user->name }}
+          </div>
+        </div>
+        <div>
+          <x-label for="profile_picture">Profile Picture</x-label>
+          <x-text-input type="file" name="profile_picture" />
+        </div>
+      </div>
+
+      <div class="mb-4 grid grid-cols-2 gap-4">
         <div class="col-span-2">
           <x-label for="email" :required="true">Email</x-label>
-          <div class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 placeholder:text-slate-400 focus:ring-2">{{ $my_user->email }}</div>
+          <div class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 placeholder:text-slate-400 focus:ring-2">
+            {{ $my_user->email }}
+          </div>
         </div>
 
         <div class="col-span-2">
@@ -29,11 +36,10 @@
           <x-label for="role">Role</x-label>
           <x-text-input name="role" :value="old('role', $my_user->role)" />
         </div>
-        <div class="col-span-2">
 
+        <div class="col-span-2">
           <x-label for="cv">CV</x-label>
           <x-text-input type="file" name="cv" />
-
         </div>
 
         <div class="col-span-2">

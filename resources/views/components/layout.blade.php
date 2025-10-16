@@ -22,7 +22,11 @@
     <div class="flex items-center space-x-2">
       <span class="font-medium">{{ auth()->user()->name ?? 'Anynomus' }}</span>
       <img data-toggle="dropdown" aria-expanded="false"
-        src="{{ asset('images/default-profile.jpg') }}"
+            @if (auth()->user()->profile_picture)
+                src="{{ asset('storage/' . auth()->user()->profile_picture) }}"
+            @else
+                src="{{ asset('images/default-profile.jpg') }}"
+            @endif
         alt="profile-picture"
         class="object-cover w-11 h-11 rounded-md cursor-pointer">
     </div>
@@ -33,8 +37,6 @@
   </div>
 </nav>
 @endauth
-
-
 
 @if (session('success'))
     <div role="alert" class="my-8 rounded-md border-l-4 border-green-300 bg-green-100 p-4 text-green-700 opacity-75">
