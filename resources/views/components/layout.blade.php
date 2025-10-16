@@ -13,7 +13,7 @@
 <body
   class="from-10% via-30% to-90% mx-auto mt-10 max-w-2xl bg-indigo-100 text-slate-700">
 @auth
-      
+
   <nav class="mb-8 flex justify-between items-between space-x-6 text-lg font-medium">
 
   <a href="{{ route('jobs.index') }}" class="hover:underline">Home</a>
@@ -22,7 +22,7 @@
     <div class="flex items-center space-x-2">
       <span class="font-medium">{{ auth()->user()->name ?? 'Anynomus' }}</span>
       <img data-toggle="dropdown" aria-expanded="false"
-        src="https://raw.githubusercontent.com/creativetimofficial/public-assets/refs/heads/master/material-tailwind/team-2.jpg"
+        src="{{ auth()->user()->profile_picture ? asset('storage/profile_pictures/' . auth()->user()->profile_picture) : asset('images/default-profile.jpg') }}"
         alt="profile-picture"
         class="object-cover w-11 h-11 rounded-md cursor-pointer">
     </div>

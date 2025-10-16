@@ -32,6 +32,7 @@ class MyUserController extends Controller
             'description' => 'nullable|string',
             'role' => 'nullable|string',
             'cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if (empty($data['password'])) {

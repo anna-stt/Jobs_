@@ -10,7 +10,7 @@ use App\Http\Controllers\MyJobController;
 use App\Http\Controllers\MyUserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('', fn() => to_route('jobs.index'));
+Route::get('', fn() => to_route('auth.create'));
 
 Route::resource('jobs', JobController::class)
     ->only(['index', 'show']);

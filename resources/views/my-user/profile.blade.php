@@ -18,6 +18,11 @@
                 <x-label for="role">Role</x-label>
                 <div class="p-2 border  rounded bg-gray-50">{{ $user->role }}</div>
             </div>
+
+            
+            <x-button class="" >Download CV
+                <a href="{{ asset('storage/cv/' . $user->cv) }}" download="{{ $user->cv }}"></a>
+            </x-button>
         </div>
     </x-card>
     <div class="flex justify-between items-between space-x-6">

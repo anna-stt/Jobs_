@@ -3,14 +3,19 @@
     <form action="{{ route('my-user.update', $my_user) }}" method="POST">
       @csrf
       @method('PUT')
-
-      <div class="mb-4 grid grid-cols-2 gap-4">
-        <div>
-          <x-label for="name" :required="true">Name</x-label>
-          <x-text-input name="name" :value="old('name', $my_user->name)" />
+        <div class="flex justify-between items-between space-x-6">
+            <div class="flex-1">
+            <x-label for="name" :required="true">Name</x-label>
+            <x-text-input name="name" :value="old('name', $my_user->name)" />
+            </div>
+            <div>
+              <x-label for="profile_picture">Profile Picture</x-label>
+              <x-button class="w-full">Upload Profile Picture</x-button>
+            </div>
         </div>
+      <div class="mb-4 grid grid-cols-2 gap-4">
 
-        <div>
+        <div class="col-span-2">
           <x-label for="email" :required="true">Email</x-label>
           <x-text-input name="email" type="email" :value="old('email', $my_user->email)" />
         </div>
@@ -28,6 +33,10 @@
         <div class="col-span-2">
           <x-label for="role">Role</x-label>
           <x-text-input name="role" :value="old('role', $my_user->role)" />
+        </div>
+        <div class="col-span-2">
+          <x-label for="cv">CV</x-label>
+          <x-button class="w-full">Upload CV</x-button>
         </div>
 
         <div class="col-span-2">
