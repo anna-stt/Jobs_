@@ -16,7 +16,9 @@
                 Applied {{ $application->created_at->diffForHumans() }}
               </div>
               <div>
-                Download CV
+                <form action="{{ route('job.jobApplications.cv.index', [$job, $application]) }}" method="GET">
+                <button class="font-medium text-indigo-500 hover:underline">Download CV</button>
+                </form>
               </div>
             </div>
 

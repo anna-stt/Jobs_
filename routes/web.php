@@ -8,6 +8,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\MyJobApplicationController;
 use App\Http\Controllers\MyJobController;
 use App\Http\Controllers\MyUserController;
+use App\Http\Controllers\CvController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', fn() => to_route('auth.create'));
@@ -28,6 +29,8 @@ Route::delete('auth', [AuthController::class, 'destroy'])
 
 Route::resource('user', UserController::class)
     ->only(['create', 'store']);
+Route::resource('job.jobApplications.cv', CvController::class)
+    ->scoped()->only('index');
 
 Route::middleware('auth')->group(function () {
     Route::resource('job.application', JobApplicationController::class)

@@ -81,4 +81,9 @@ class JobPolicy
     {
         return !$job->hasUserApplied($user);
     }
+
+    public function download(User $user, Job $job) : bool
+    {
+        return $job->employer->user_id === $user->id;
+    }
 }

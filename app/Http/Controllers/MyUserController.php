@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Auth;
 
 class MyUserController extends Controller
 {
@@ -26,12 +25,9 @@ class MyUserController extends Controller
         Gate::authorize('update', $my_user);
 
         $data = $request->validate([
-            'name' => 'required|min:3|unique:users,name,' . $my_user->id,
-            'email' => 'required|email|unique:users,email,' . $my_user->id,
-            'password' => 'nullable|min:6',
             'description' => 'nullable|string',
             'role' => 'nullable|string',
-            'cv' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            'cv' => 'nullable|file|mimes:pdf|max:2048',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 

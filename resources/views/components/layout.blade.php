@@ -22,7 +22,7 @@
     <div class="flex items-center space-x-2">
       <span class="font-medium">{{ auth()->user()->name ?? 'Anynomus' }}</span>
       <img data-toggle="dropdown" aria-expanded="false"
-        src="{{ auth()->user()->profile_picture ? asset('storage/profile_pictures/' . auth()->user()->profile_picture) : asset('images/default-profile.jpg') }}"
+        src="{{ asset('images/default-profile.jpg') }}"
         alt="profile-picture"
         class="object-cover w-11 h-11 rounded-md cursor-pointer">
     </div>

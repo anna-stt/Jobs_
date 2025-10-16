@@ -6,7 +6,7 @@
         <div class="flex justify-between items-between space-x-6">
             <div class="flex-1">
             <x-label for="name" :required="true">Name</x-label>
-            <x-text-input name="name" :value="old('name', $my_user->name)" />
+            <div class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 placeholder:text-slate-400 focus:ring-2">{{ $my_user->name }}</div>
             </div>
             <div>
               <x-label for="profile_picture">Profile Picture</x-label>
@@ -17,12 +17,7 @@
 
         <div class="col-span-2">
           <x-label for="email" :required="true">Email</x-label>
-          <x-text-input name="email" type="email" :value="old('email', $my_user->email)" />
-        </div>
-
-        <div class="col-span-2">
-          <x-label for="password">Password (leave blank to keep current password)</x-label>
-          <x-text-input name="password" type="password" />
+          <div class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 placeholder:text-slate-400 focus:ring-2">{{ $my_user->email }}</div>
         </div>
 
         <div class="col-span-2">
@@ -35,8 +30,10 @@
           <x-text-input name="role" :value="old('role', $my_user->role)" />
         </div>
         <div class="col-span-2">
+
           <x-label for="cv">CV</x-label>
-          <x-button class="w-full">Upload CV</x-button>
+          <x-text-input type="file" name="cv" />
+
         </div>
 
         <div class="col-span-2">
