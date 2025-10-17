@@ -21,14 +21,10 @@
   <div class="dropdown relative" data-placement="bottom-end">
     <div class="flex items-center space-x-2">
       <span class="font-medium">{{ auth()->user()->name ?? 'Anynomus' }}</span>
-      <img data-toggle="dropdown" aria-expanded="false"
-            @if (auth()->user()->profile_picture)
-                src="{{ asset('storage/' . auth()->user()->profile_picture) }}"
-            @else
-                src="{{ asset('images/default-profile.jpg') }}"
-            @endif
-        alt="profile-picture"
-        class="object-cover w-11 h-11 rounded-md cursor-pointer">
+            <img data-toggle="dropdown" aria-expanded="false"
+            src="{{ asset('images/default-profile.jpg') }}"
+            alt="Profile Picture"
+            class="object-cover w-11 h-11 rounded-md cursor-pointer">
     </div>
     <div data-role="menu"
       class="hidden absolute right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-xl shadow-slate-950/[0.025] p-1 z-10">

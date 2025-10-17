@@ -33,6 +33,7 @@ Route::resource('user', UserController::class)
 Route::resource('job.jobApplications.cv', CvController::class)
     ->scoped()->only('index');
 
+
 Route::middleware('auth')->group(function () {
     Route::resource('job.application', JobApplicationController::class)
         ->only(['create', 'store']);
@@ -46,7 +47,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-user', [MyUserController::class, 'index'])->name('my-user.index');
     Route::get('/my-user/edit', [MyUserController::class, 'edit'])->name('my-user.edit');
     Route::put('/my-user', [MyUserController::class, 'update'])->name('my-user.update');
-
 
     Route::middleware('employer')
         ->resource('my-jobs', MyJobController::class);

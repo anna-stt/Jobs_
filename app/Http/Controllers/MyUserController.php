@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 class MyUserController extends Controller
 {
@@ -37,19 +38,21 @@ class MyUserController extends Controller
             $data['cv'] = $path;
         }
         if ($request->hasFile('profile_picture')) {
-            $file = $request->image('profile_picture');
-            $path = $file->store('ProfilePictures', 'local');
-            $data['profile_picture'] = $path;
+            $image = $request->file('profile_picture');
+            $imageName = $my_user->id . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('profilePictures', $imageName, 'local');
+            $data['profile_picture'] = $imagePath;
         }
 
         if (empty($data['password'])) {
             unset($data['password']);
         }
-        $my_user->update(['cv' => $path]);
 
         $my_user->update($data);
 
         return redirect()->route('my-user.index')
             ->with('success', 'Your profile was updated!');
     }
+
+
 }
